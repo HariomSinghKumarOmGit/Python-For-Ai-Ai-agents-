@@ -1,7 +1,10 @@
-import requests
 
-# Download a web page
-response = requests.get("https://api.github.com")
-print(response.status_code)  # Should print 200
+import random
+
+numbers = random.randint(1,10)
+choice = random.choice(["Apple", "banana", "orange"])
 
 
+import datetime
+today = datetime.date.today()
+print( today.year )  # 2024-01-15
