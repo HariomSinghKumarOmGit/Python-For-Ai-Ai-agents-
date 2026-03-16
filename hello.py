@@ -1,15 +1,21 @@
-import requests
+# pip install python-dotenv
 
-def get_weather(latitude, longitude):
-    response = requests.get(f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m")
-    data = response.json()
-    return data['current']['temperature_2m']
 
-# Get temperature for different cities
-paris_temp = get_weather(48.85, 2.35)
-london_temp = get_weather(51.50, -0.12)
-tokyo_temp = get_weather(35.68, 139.69)
+# # .env
+# API_KEY=sk-1234567890abcdef
+# DATABASE_URL=sqlite:///myapp.db
+# DEBUG=True
 
-print(f"Paris: {paris_temp}°C")
-print(f"London: {london_temp}°C")
-print(f"Tokyo: {tokyo_temp}°C")
+
+from dotenv import load_dotenv
+import os
+
+# Load the .env file
+load_dotenv()
+
+# Now use your variables
+api_key = os.environ.get('API_KEY')
+debug = os.environ.get('DEBUG')
+
+print(f"API Key: {api_key}")
+print(f"Debug mode: {debug}")
