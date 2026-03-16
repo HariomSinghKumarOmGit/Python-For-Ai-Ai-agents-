@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-placeto = "aya_nager"
+placeto = "dtc_noida"
 latitude =28.4747919
 longitude =77.4761341
 
@@ -13,6 +13,7 @@ longitude =77.4761341
 today = datetime.now()
 week_ago = today - timedelta(days=7)
 
+# from datetime import datetime, timedelta.               <---
 # Format dates for API (YYYY-MM-DD)
 start_date = week_ago.strftime("%Y-%m-%d")
 end_date = today.strftime("%Y-%m-%d")
@@ -25,7 +26,7 @@ data = response.json()
 print(data)
 
 # ---------------------------------------------------
-
+# import pandas as pd                                  <---
 # Extract the daily data
 daily_data = data['daily']
 
@@ -41,7 +42,7 @@ df['date'] = pd.to_datetime(df['date'])
 
 #------------------------------------------------------------------------------------------
 
-
+# import matplotlib.pyplot as plt                     <---
 # Create the plot
 plt.figure(figsize=(10, 6))
 plt.plot(df['date'], df['max_temp'], marker='o', label='Max Temp')
@@ -64,6 +65,7 @@ plt.show()
 
 #------------------------------------------------------------------------------------------
 
+# import os                                           <---
 
 # Create data folder if it doesn't exist
 if not os.path.exists('data'):
